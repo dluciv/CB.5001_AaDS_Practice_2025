@@ -1,0 +1,53 @@
+# Что за Workflow
+name: "Test"
+
+# Когда он запускается
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  python_test:
+    name: Настройка, сборка и тестирование
+    # Контейнер, в котором запускается задание
+
+    # Разные сочетания для проверки
+    strategy:
+      matrix:
+        os:
+          - ubuntu-24.04
+        python_version:
+          - 3.12
+        exercise:
+          - 00.CI_example
+          # - 01.ASCII85_Task
+
+    runs-on: "${{ matrix.os }}"
+
+    # Шаги задания
+    steps:
+      - name: Печать окружения. Окружение — это интересно.
+        run: env
+
+      # - name: Установка make и некоторых других инструментов
+      #    run: |
+      #      sudo apt-get update
+      #      sudo apt-get install build-essential
+
+      - name: Установка Питона (или Пайтона?..)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "${{ matrix.python_version }}"
+
+      - name: Берём исходники из Гита
+        uses: actions/checkout@v4
+
+      - name: Тестируем программу
+        run: |
+          cd ${{ matrix.exercise }}
+          ./test.sh
+          cd ..
