@@ -1,3 +1,6 @@
 #!/usr/bin/env python3
 
-print("Привет, Олег!")
+import library
+
+if __name__ == '__main__':
+    library.greet()
