@@ -24,7 +24,7 @@ jobs:
           - 3.12
         exercise:
           - 00.CI_example
-          # - 01.ASCII85_Task
+          - 01.ASCII85_Task
 
     runs-on: "${{ matrix.os }}"
 
