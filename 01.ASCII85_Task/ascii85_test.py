@@ -2,9 +2,7 @@ import unittest
 from unittest.mock import patch
 from io import StringIO
 
-import library
-
-class LibraryTest(unittest.TestCase):
+class ASCII85Test(unittest.TestCase):
     def test_who_am_i(self):
         self.assertEqual(1, 1)
 
