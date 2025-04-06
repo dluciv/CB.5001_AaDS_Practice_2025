@@ -22,7 +22,7 @@ ascii85.py -d # читает ASCII85 из STDIN и выдаёт байты в ST
 - до конца, и потом весь результат выдать в `STDOUT`, как делает `base64`;
 - добавить опцию в командную строку, которая позволит выбрать, как действовать.
 
-Для этого можно использовать [`sys.stdin.read()` и `sys.stdout.write()`](https://docs.python.org/3/glossary.html#term-file-object).
+Для этого можно использовать [`sys.stdin.buffer.read()` и `sys.stdout.buffer.write()`](https://docs.python.org/3/glossary.html#term-binary-file).
 
 ## 1.2. Unit-тесты
 
